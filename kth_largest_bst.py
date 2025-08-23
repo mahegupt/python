@@ -9,6 +9,8 @@ class TreeNode:
 #      3   7
 #     / \  / \
 #    2  4 6  8
+
+
 class Solution:
     def __init__(self):
         self.ans = None
@@ -28,24 +30,26 @@ class Solution:
         self.dfs(root, kref)
         return self.ans
 
+
 '''
 Start from root, keep moving to largest side(right) and store all elements on stack.
 Once you reached end, you have largest element on top of stack. keep poping, adding the left child to stack as it is bigger than their parent.
 '''
+
+
 class iSolution:
     def kthLargest(self, root, k):
         stack = []
-        while(root or stack):
-            while(root):
+        while (root or stack):
+            while (root):
                 stack.append(root)
                 root = root.right
 
             root = stack.pop()
             k -= 1
-            if k==0:
+            if k == 0:
                 return root.val
             root = root.left
-
 
 
 # Example BST:
@@ -54,7 +58,6 @@ class iSolution:
 #      3   7
 #     / \  / \
 #    2  4 6  8
-
 root = TreeNode(5)
 root.left = TreeNode(3, TreeNode(2), TreeNode(4))
 root.right = TreeNode(7, TreeNode(6), TreeNode(8))
