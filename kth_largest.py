@@ -11,12 +11,19 @@ def findKthLargest(nums, k):
 
 
 # Example
-print(findKthLargest([3, 2, 1, 5, 6, 4], 2))  # 5
+array = [3, 2, 3, 1, 2, 14, 51, 15, 16]
+k = 3
+print(f"K={k}th largest in array - {array} is {findKthLargest(array, k)}")
 
-# Using heap queue.
+
+''' Using heap queue.
+Python’s heapq is a min-heap by default.
+Maintain a min-heap of size k.
+Push numbers, pop smallest when size exceeds k.
+Top of heap = k-th largest.'''
 
 
-def findKthLargest2(nums, k):
+def findKthLargest_heap(nums, k):
     min_heap = []
     for num in nums:
         heapq.heappush(min_heap, num)
@@ -26,7 +33,8 @@ def findKthLargest2(nums, k):
 
 
 # Example
-print(findKthLargest2([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))  # 4
+array = [3, 2, 3, 1, 2, 14, 51, 15, 16]
+print(f"K={k}th largest in array - {array} is {findKthLargest_heap(array, k)}")
 
 
 def quickselect(nums, k):
@@ -55,4 +63,5 @@ def partition(nums, left, right):
     return i
 
 
-print(quickselect([3, 2, 3, 1, 2, 4, 5, 5, 6], 3))  # 4
+array = [3, 2, 3, 1, 2, 14, 51, 15, 16]
+print(f"K={k}th largest in array - {array} is {quickselect(array, k)}")

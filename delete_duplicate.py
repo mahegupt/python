@@ -1,3 +1,4 @@
+# Program to delete duplicate elements in sorted linklist.
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -15,7 +16,7 @@ def deleteDuplicates(head: ListNode) -> ListNode:
     while current:
         # Check if current node is the start of duplicates
         if current.next and current.val == current.next.val:
-            # Skip all nodes with the same value
+            # Skip all nodes with the same value, at end link non-duplicate node with the previous node.
             while current.next and current.val == current.next.val:
                 current = current.next
             # Link prev to the node after duplicates
